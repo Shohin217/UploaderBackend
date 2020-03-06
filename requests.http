@@ -1,0 +1,35 @@
+@url = http://localhost:9999 
+ 
+ 
+ 
+ 
+
+ 
+### 
+
+DELETE {{url}}/api/media/f14c86c3-4250-4c3b-8482-af1a62729645.png
+Content-Type: application/json
+
+###
+
+GET {{url}}/api/media
+
+###
+
+# @name auth 
+POST {{url}}/api/auth 
+Content-Type: application/json 
+ 
+ 
+{ 
+    "login": "Vasya", 
+    "password": "secret" 
+} 
+ 
+ 
+### 
+@token = {{auth.response.body.token}} 
+ 
+ 
+GET {{url}}/api/me 
+Authorization: Bearer {{token}}
